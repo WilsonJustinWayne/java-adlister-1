@@ -1,6 +1,4 @@
-# todo, decide on database name before we run this
-
-USE;
+USE team_db;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS ads;
@@ -38,7 +36,8 @@ CREATE TABLE ads_categories (
 CREATE TABLE categories (
 
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    category VARCHAR(255) NOT NULL
+    category VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
 
-)
+);
 
