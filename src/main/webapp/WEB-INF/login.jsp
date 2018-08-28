@@ -5,6 +5,11 @@
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
 </head>
+<%
+    if (request.getAttribute("username") == null) {
+        request.setAttribute("username", "");
+    }
+%>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
@@ -12,7 +17,7 @@
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="<%= request.getAttribute("username")%>">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

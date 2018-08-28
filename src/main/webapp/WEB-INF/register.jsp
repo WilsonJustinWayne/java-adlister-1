@@ -5,6 +5,14 @@
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
 </head>
+<%
+    if (request.getAttribute("username") == null) {
+        request.setAttribute("username", "");
+    }
+    if (request.getAttribute("email") == null) {
+        request.setAttribute("email", "");
+    }
+%>
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
@@ -12,11 +20,11 @@
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="<%= request.getAttribute("username")%>">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="text" value="<%= request.getAttribute("email")%>">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
