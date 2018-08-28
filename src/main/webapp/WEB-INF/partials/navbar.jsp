@@ -6,6 +6,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
+                <a class="nav-link" href="/ads/create">Create</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item">
