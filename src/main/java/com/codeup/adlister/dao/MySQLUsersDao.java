@@ -46,6 +46,9 @@ public class MySQLUsersDao implements Users {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Duplicate username");
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
