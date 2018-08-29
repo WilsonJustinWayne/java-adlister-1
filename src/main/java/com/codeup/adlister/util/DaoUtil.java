@@ -9,7 +9,7 @@ public class DaoUtil {
 
     public static Connection connection;
 
-    public static void connect(Config config){
+    public static void connect(Config config) {
 
         try {
             DriverManager.registerDriver(new Driver());
@@ -49,22 +49,33 @@ public class DaoUtil {
         return rs.getLong(1);
     }
 
+    public static long dbInsert(long adId, long catId) throws SQLException {
+
+        String insertQuery = "INSERT INTO ads_categories(ad_id, category_id) VALUES (?, ?)";
+        PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        stmt.setLong(1, adId);
+        stmt.setLong(2, catId);
+        stmt.executeUpdate();
+        ResultSet rs = stmt.getGeneratedKeys();
+        rs.next();
+        return rs.getLong(1);
+    }
+
     public static long dbDelete(String targetDb, long id) throws SQLException {
 
         String deleteQuery = "";
 
-        if(targetDb.equals("ads")){
+        if (targetDb.equals("ads")) {
             deleteQuery = "DELETE FROM ads WHERE id = ?";
         }
 
         PreparedStatement stmt = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
-        stmt.setLong(1,  id);
+        stmt.setLong(1, id);
         stmt.executeUpdate();
         ResultSet rs = stmt.getGeneratedKeys();
         rs.next();
         return rs.getLong(1);
 
     }
-
 
 }
