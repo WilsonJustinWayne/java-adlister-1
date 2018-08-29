@@ -16,15 +16,15 @@
         </div>
         <label for="categories">Categories: </label>
         <div id="categories" class="form-check form-check-inline">
-            <input id="animals" name="categories[]" class="form-check-input" type="checkbox" value="animals" required>
+            <input id="animals" name="categories" class="form-check-input" type="checkbox" value="1" required>
             <label class="form-check-label pr-2" for="animals">Animals </label>
-            <input id="people" name="categories[]" class="form-check-input" type="checkbox" value="people" required>
+            <input id="people" name="categories" class="form-check-input" type="checkbox" value="2" required>
             <label class="form-check-label pr-2" for="people">People </label>
-            <input id="concepts" name="categories[]" class="form-check-input" type="checkbox" value="concepts" required>
+            <input id="concepts" name="categories" class="form-check-input" type="checkbox" value="3" required>
             <label class="form-check-label pr-2" for="concepts">Concepts </label>
-            <input id="things" name="categories[]" class="form-check-input" type="checkbox" value="things" required>
+            <input id="things" name="categories" class="form-check-input" type="checkbox" value="4" required>
             <label class="form-check-label pr-2" for="things">Things </label>
-            <input id="places" name="categories[]" class="form-check-input" type="checkbox" value="places" required>
+            <input id="places" name="categories" class="form-check-input" type="checkbox" value="5" required>
             <label class="form-check-label pr-2" for="places">Places </label>
         </div>
         <div class="form-group">
