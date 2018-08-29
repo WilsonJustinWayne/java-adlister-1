@@ -51,7 +51,26 @@ public class MySQLAdsDao implements Ads {
             return createAdsFromResults(rs);
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving specific ads.", e);
+        }
+
+    }
+
+    @Override
+    public Ad findById(long id){
+
+        PreparedStatement stmt = null;
+        try {
+            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            rs.next();
+            return extractAd(rs);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving targeted ad.", e);
         }
 
     }
