@@ -30,8 +30,10 @@ public class MySQLUsersDao implements Users {
         return DaoUtil.dbInsert(user.getUsername(), user.getEmail(), user.getPassword());
         } catch (SQLIntegrityConstraintViolationException e) {
             System.out.println("Duplicate username");
-            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
