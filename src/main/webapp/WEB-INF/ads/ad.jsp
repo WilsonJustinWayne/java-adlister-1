@@ -22,6 +22,9 @@
                         <h2 class="card-title">${ad.title}</h2>
                         <p class="card-text">${ad.description}</p>
                     </div>
+                    <div class="card-footer">
+                        <p class="card-text text-right">Created by ${user.username}</p>
+                    </div>
                 </div>
             </div>
         </div>
