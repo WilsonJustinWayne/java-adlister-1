@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Create a new Ad" />
+        <jsp:param name="title" value="Edit Ads" />
     </jsp:include>
 </head>
 <body>
@@ -26,6 +26,7 @@
             <label for="description">Description</label>
             <textarea id="description" name="description" class="form-control" type="text" required></textarea>
         </div>
+        <input type="text" name="ad_id" value="${ads.id}">
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
