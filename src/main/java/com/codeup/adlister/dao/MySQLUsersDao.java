@@ -12,6 +12,19 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+    public User findByUserId(Long id) {
+        String query = "SELECT * FROM users WHERE id = ?";
+        PreparedStatement stmt = null;
+        try {
+            stmt = DaoUtil.connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by ad user_id");
+        }
+    }
+
+    @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
