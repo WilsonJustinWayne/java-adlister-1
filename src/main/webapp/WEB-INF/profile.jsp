@@ -20,6 +20,14 @@
                     <div class="col-6 py-5">
                         <h1 class="text-center">${ads.title}</h1>
                         <p class="text-center">${ads.description}</p>
+                        <form action="/profile" method="POST">
+                            <input hidden type="number" name="ad_id" value="${ads.id}">
+                            <button>Delete</button>
+                        </form>
+                        <form action="/edit" method="GET">
+                            <input hidden type="number" name="ad_id" value="${ads.id}">
+                            <button>Edit</button>
+                        </form>
                     </div>
                 </c:if>
             </c:forEach>

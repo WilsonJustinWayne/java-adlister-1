@@ -25,11 +25,15 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
+
         try{
         return DaoUtil.dbInsert(user.getUsername(), user.getEmail(), user.getPassword());
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Duplicate username");
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
