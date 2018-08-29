@@ -49,19 +49,16 @@ public class DaoUtil {
         return rs.getLong(1);
     }
 
-    public static long dbInsert(long adId, long catId) throws SQLException {
+    public static void dbInsert(long adId, long catId) throws SQLException {
 
         String insertQuery = "INSERT INTO ads_categories(ad_id, category_id) VALUES (?, ?)";
-        PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement stmt = connection.prepareStatement(insertQuery);
         stmt.setLong(1, adId);
         stmt.setLong(2, catId);
         stmt.executeUpdate();
-        ResultSet rs = stmt.getGeneratedKeys();
-        rs.next();
-        return rs.getLong(1);
     }
 
-    public static long dbDelete(String targetDb, long id) throws SQLException {
+    public static void dbDelete(String targetDb, long id) throws SQLException {
 
         String deleteQuery = "";
 
@@ -69,13 +66,9 @@ public class DaoUtil {
             deleteQuery = "DELETE FROM ads WHERE id = ?";
         }
 
-        PreparedStatement stmt = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement stmt = connection.prepareStatement(deleteQuery);
         stmt.setLong(1, id);
         stmt.executeUpdate();
-        ResultSet rs = stmt.getGeneratedKeys();
-        rs.next();
-        return rs.getLong(1);
-
     }
 
 }
