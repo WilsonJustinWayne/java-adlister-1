@@ -49,5 +49,22 @@ public class DaoUtil {
         return rs.getLong(1);
     }
 
+    public static long dbDelete(String targetDb, long id) throws SQLException {
+
+        String deleteQuery = "";
+
+        if(targetDb.equals("ads")){
+            deleteQuery = "DELETE FROM ads WHERE id = ?";
+        }
+
+        PreparedStatement stmt = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
+        stmt.setLong(1,  id);
+        stmt.executeUpdate();
+        ResultSet rs = stmt.getGeneratedKeys();
+        rs.next();
+        return rs.getLong(1);
+
+    }
+
 
 }
