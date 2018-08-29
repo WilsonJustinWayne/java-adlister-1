@@ -48,6 +48,4 @@ public class DaoUtil {
         rs.next();
         return rs.getLong(1);
     }
-
-
 }
