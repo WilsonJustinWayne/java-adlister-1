@@ -15,12 +15,15 @@ public class EditServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        long ad_id = Long.parseLong(request.getParameter("ad_id"));
+        if(request.getParameter("ad_id") == null){
+            response.sendRedirect("/ads");
+        }else{
+            long ad_id = Long.parseLong(request.getParameter("ad_id"));
 
-        request.setAttribute("ads", DaoFactory.getAdsDao().findById(ad_id));
+            request.setAttribute("ads", DaoFactory.getAdsDao().findById(ad_id));
 
-        request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
-
+            request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
