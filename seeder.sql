@@ -29,45 +29,10 @@ INSERT INTO ads (user_id, title, description) VALUES
   (3, 'conspiracy', 'group of lemurs'), # concepts animals
   (1, 'unkindness', 'group of ravens'), # concept animals
   (2, 'business', 'group of ferrets'), # concept animals
-  (3, 'constellation', 'group of stars, and also a group of any like entities'); #animals, people, concepts, things, places
+  (3, 'constellation',
+   'group of stars, and also a group of any like entities'); #animals, people, concepts, things, places
 
 INSERT INTO ads_categories (ad_id, category_id) VALUES
-  (1,3),
-  (2,1),
-  (2,2),
-  (2,3),
-  (3,2),
-  (4,4),
-  (4,5),
-  (5,4),
-  (6,4),
-  (7,1),
-  (7,2),
-  (8,1),
-  (8,3),
-  (9,1),
-  (9,3),
-  (10,1),
-  (10,1),
-  (11,1),
-  (11,2),
-  (11,3),
-  (11,5),
-  (12,1),
-  (12,2),
-  (12,3),
-  (13,1),
-  (13,3),
-  (14,1),
-  (14,3),
-  (15,1),
-  (15,3),
-  (16,1),
-  (16,3),
-  (17,1),
-  (17,3),
-  (18,1),
-  (18,2),
-  (18,3),
-  (18,4),
-  (18,5);
+  (1, 3), (2, 1), (2, 2), (2, 3), (3, 2), (4, 4), (4, 5), (5, 4), (6, 4), (7, 1), (7, 2), (8, 1), (8, 3), (9, 1),
+  (9, 3), (10, 1), (10, 1), (11, 1), (11, 2), (11, 3), (11, 5), (12, 1), (12, 2), (12, 3), (13, 1), (13, 3), (14, 1),
+  (14, 3), (15, 1), (15, 3), (16, 1), (16, 3), (17, 1), (17, 3), (18, 1), (18, 2), (18, 3), (18, 4), (18, 5);

@@ -3,13 +3,13 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
 
     <style>
         .card {
             height: 300px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
 
         .btn {
@@ -19,12 +19,12 @@
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
 
-    <jsp:include page="/WEB-INF/partials/searchBar.jsp" />
+    <jsp:include page="/WEB-INF/partials/searchBar.jsp"/>
 
     <div class="container-fluid">
         <div class="row">
@@ -35,7 +35,30 @@
                             <h2 class="card-title p-2">${ad.title}</h2>
                             <p class="card-text">${ad.description}</p>
                         </div>
-                        <a class="btn btn-light btn-small" href="/ad?id=${ad.id}">More info</a>
+                        <div class="card-footer">
+                            <c:forEach var="cat" items="${ad.categories}">
+                                <span class="badge badge-pill badge-dark">
+                                <c:choose>
+                                    <c:when test="${cat.categoryId == 1}">
+                                        animals
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 2}">
+                                        people
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 3}">
+                                        concepts
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 4}">
+                                        things
+                                    </c:when>
+                                    <c:otherwise>
+                                        places
+                                    </c:otherwise>
+                                </c:choose>
+                                </span>
+                            </c:forEach>
+                            <a class="btn btn-light btn-small float-right" href="/ad?id=${ad.id}">More info</a>
+                        </div>
                     </div>
                 </div>
             </c:forEach>
@@ -43,7 +66,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/partials/scripts.jsp" />
+<jsp:include page="/WEB-INF/partials/scripts.jsp"/>
 
 </body>
 </html>
