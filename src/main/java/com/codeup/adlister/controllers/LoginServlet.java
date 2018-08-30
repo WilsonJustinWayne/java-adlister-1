@@ -36,7 +36,11 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
+            if(request.getSession().getAttribute("target") == null || request.getSession().getAttribute("target").equals("profile")) {
+                response.sendRedirect("/profile");
+            }else if(request.getSession().getAttribute("target").equals("create")){
+                response.sendRedirect("/ads/create");
+            }
         } else {
             request = stickyForm(username, request);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
