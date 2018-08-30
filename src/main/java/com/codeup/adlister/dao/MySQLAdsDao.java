@@ -2,11 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.DaoUtil;
-import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +36,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> searchAds(String searchTerm){
+    public List<Ad> searchAds(String searchTerm) {
 
         PreparedStatement stmt = null;
         try {
@@ -57,7 +53,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Ad findById(long id){
+    public Ad findById(long id) {
 
         PreparedStatement stmt = null;
         try {
@@ -80,7 +76,7 @@ public class MySQLAdsDao implements Ads {
         String updateQuery = "UPDATE ads SET title = ?, description = ? where id = ?";
 
         PreparedStatement stmt = DaoUtil.connection.prepareStatement(updateQuery);
-        stmt.setString(1,title);
+        stmt.setString(1, title);
         stmt.setString(2, description);
         stmt.setLong(3, id);
         stmt.executeUpdate();
@@ -89,10 +85,11 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                DaoFactory.getAdsCategoriesDao().findByAdId(rs.getLong("id"))
         );
     }
 

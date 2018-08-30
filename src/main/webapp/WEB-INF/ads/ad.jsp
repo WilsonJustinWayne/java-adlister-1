@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,6 +24,27 @@
                         <p class="card-text">${ad.description}</p>
                     </div>
                     <div class="card-footer">
+                        <c:forEach var="cat" items="${ad.categories}">
+                                <span class="badge badge-pill badge-dark">
+                                <c:choose>
+                                    <c:when test="${cat.categoryId == 1}">
+                                        animals
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 2}">
+                                        people
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 3}">
+                                        concepts
+                                    </c:when>
+                                    <c:when test="${cat.categoryId == 4}">
+                                        things
+                                    </c:when>
+                                    <c:otherwise>
+                                        places
+                                    </c:otherwise>
+                                </c:choose>
+                                </span>
+                        </c:forEach>
                         <p class="card-text text-right">Created by ${user.username}</p>
                     </div>
                 </div>
