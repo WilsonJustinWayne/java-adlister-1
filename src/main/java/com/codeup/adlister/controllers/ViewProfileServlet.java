@@ -26,7 +26,17 @@ public class ViewProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if (request.getParameter("methods").equals("PUT")) {
+        if(request.getParameter("methods") == null){
+            long id = Long.parseLong(request.getParameter("id"));
+
+            try {
+                DaoUtil.dbDelete("ads", id);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            request.setAttribute("ads", DaoFactory.getAdsDao().all());
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        }else if (request.getParameter("methods").equals("PUT")) {
             User user = (User) request.getSession().getAttribute("user");
             String editedUsername = !request.getParameter("username").equals(user.getUsername())
                     ? request.getParameter("username")
@@ -40,15 +50,6 @@ public class ViewProfileServlet extends HttpServlet {
             DaoFactory.getUsersDao().updateUserInformation(editedUsername, editedEmail, newPassword, user.getId());
             User newUser = DaoFactory.getUsersDao().findByUserId(user.getId());
             request.getSession().setAttribute("user", newUser);
-            request.setAttribute("ads", DaoFactory.getAdsDao().all());
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-        } else {
-            long ad_id = Long.parseLong(request.getParameter("ad_id"));
-            try {
-                DaoUtil.dbDelete("ads", ad_id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
             request.setAttribute("ads", DaoFactory.getAdsDao().all());
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         }

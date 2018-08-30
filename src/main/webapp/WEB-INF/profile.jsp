@@ -71,7 +71,7 @@
                                     <div class="col-6">
                                         <form action="/profile" method="POST">
                                             <div class="form-group">
-                                                <input hidden type="number" name="ad_id" value="${ads.id}">
+                                                <input hidden type="number" name="id" value="${ads.id}">
                                                 <button id="submitButton" type="submit" class="btn btn-danger btn-sm btn-block">Delete</button>
                                             </div>
                                         </form>
