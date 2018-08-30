@@ -57,7 +57,7 @@
                                 </c:choose>
                                 </span>
                             </c:forEach>
-                            <a class="btn btn-light btn-small" href="/ad?id=${ad.id}">More info</a>
+                            <a class="btn btn-light btn-small float-right" href="/ad?id=${ad.id}">More info</a>
                         </div>
                     </div>
                 </div>
