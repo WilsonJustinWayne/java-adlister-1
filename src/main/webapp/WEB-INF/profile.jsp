@@ -72,7 +72,7 @@
                                         <form action="/profile" method="POST">
                                             <div class="form-group">
                                                 <input hidden type="number" name="ad_id" value="${ads.id}">
-                                                <button type="submit" class="btn btn-danger btn-sm btn-block">Delete</button>
+                                                <button id="submitButton" type="submit" class="btn btn-danger btn-sm btn-block">Delete</button>
                                             </div>
                                         </form>
                                     </div>
