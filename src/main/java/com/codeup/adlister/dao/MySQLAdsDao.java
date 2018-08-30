@@ -18,7 +18,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads");
+            stmt = DaoUtil.connection.prepareStatement("SELECT a.id, a.user_id, a.title, a.description, u.username FROM ads AS a JOIN users AS u ON a.user_id = u.id ORDER BY id;");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
@@ -40,7 +40,7 @@ public class MySQLAdsDao implements Ads {
 
         PreparedStatement stmt = null;
         try {
-            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ?");
+            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads JOIN users WHERE ads.title LIKE ?");
             stmt.setString(1, '%' + searchTerm + '%');
 
             ResultSet rs = stmt.executeQuery();
@@ -57,7 +57,7 @@ public class MySQLAdsDao implements Ads {
 
         PreparedStatement stmt = null;
         try {
-            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads JOIN users WHERE ads.id = ?");
             stmt.setLong(1, id);
 
             ResultSet rs = stmt.executeQuery();
@@ -89,7 +89,8 @@ public class MySQLAdsDao implements Ads {
                 rs.getLong("user_id"),
                 rs.getString("title"),
                 rs.getString("description"),
-                DaoFactory.getAdsCategoriesDao().findByAdId(rs.getLong("id"))
+                DaoFactory.getAdsCategoriesDao().findByAdId(rs.getLong("id")),
+                rs.getString("username")
         );
     }
 

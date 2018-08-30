@@ -4,6 +4,7 @@ import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.DaoUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLUsersDao implements Users {
@@ -19,7 +20,8 @@ public class MySQLUsersDao implements Users {
         try {
             stmt = DaoUtil.connection.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-            return null;
+            rs.next();
+            return createUsersFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding all users", e);
         }
@@ -79,8 +81,12 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    private List<User> createUsersFromResults(ResultSet rs) {
-        return null;
+    private List<User> createUsersFromResults(ResultSet rs) throws SQLException{
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            users.add(extractUser(rs));
+        }
+        return users;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {

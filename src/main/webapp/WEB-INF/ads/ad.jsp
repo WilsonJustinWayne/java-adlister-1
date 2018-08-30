@@ -45,7 +45,7 @@
                                 </c:choose>
                                 </span>
                         </c:forEach>
-                        <p class="card-text text-right">Created by ${}</p>
+                        <p class="card-text text-right">Created by ${ad.createdBy}</p>
                     </div>
                 </div>
             </div>

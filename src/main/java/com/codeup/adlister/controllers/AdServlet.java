@@ -18,12 +18,10 @@ public class AdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long adId = Long.valueOf(request.getParameter("id"));
         List<Ad> ads = DaoFactory.getAdsDao().all();
-        User user = DaoFactory.getUsersDao().findByUserId(adId);
 
         for (Ad ad: ads) {
             if (ad.getId() == adId) {
                 request.setAttribute("ad", ad);
-                request.setAttribute("user", user);
                 request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
             }
         }

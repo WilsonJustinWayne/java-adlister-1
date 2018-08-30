@@ -8,13 +8,15 @@ public class Ad {
     private String title;
     private String description;
     private List<AdCategory> categories;
+    private String createdBy;
 
-    public Ad(long id, long userId, String title, String description, List<AdCategory> categories) {
+    public Ad(long id, long userId, String title, String description, List<AdCategory> categories, String createdBy) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.categories = categories;
+        this.createdBy = createdBy;
     }
 
     public Ad(long userId, String title, String description, List<AdCategory> categories) {
@@ -68,5 +70,9 @@ public class Ad {
 
     public void setCategories(List<AdCategory> categories) {
         this.categories = categories;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
     }
 }
