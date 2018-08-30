@@ -8,11 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-<form action="/ads" method="POST">
+<form action="/ads" method="POST" class="input-group py-4">
 
-    <label for="search">Placeholder for the search bar</label>
+    <input type="text" class="form-control" id="search" name="search">
 
-    <input type="text" id="search" name="search">
-
-    <button>Submit</button>
+    <button class="btn btn-primary">Search</button>
 </form>
