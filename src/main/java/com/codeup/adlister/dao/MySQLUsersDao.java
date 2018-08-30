@@ -4,11 +4,25 @@ import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.DaoUtil;
 
 import java.sql.*;
+import java.util.List;
 
 public class MySQLUsersDao implements Users {
     public MySQLUsersDao(Config config) {
 
         DaoUtil.connect(config);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        String query = "SELECT * FROM users";
+        PreparedStatement stmt = null;
+        try {
+            stmt = DaoUtil.connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding all users", e);
+        }
     }
 
     @Override
@@ -63,6 +77,10 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user information", e);
         }
+    }
+
+    private List<User> createUsersFromResults(ResultSet rs) {
+        return null;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
