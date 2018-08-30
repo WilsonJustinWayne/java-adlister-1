@@ -25,6 +25,10 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
+        <div id="register">
+            <h4>Not already a user?</h4>
+            <h4 class="text-primary"><a href="/register">Register Here!</a></h4>
+        </div>
     </div>
 
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
