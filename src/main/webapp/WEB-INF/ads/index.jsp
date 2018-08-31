@@ -7,14 +7,7 @@
     </jsp:include>
 
     <style>
-        .card {
-            height: 300px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-        }
-
-        .btn {
-            border-radius: 0;
-        }
+        <%@ include file="/resources/css/main.css" %>
     </style>
 
 </head>
@@ -22,9 +15,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
-
-    <jsp:include page="/WEB-INF/partials/searchBar.jsp"/>
+    <input type="text" class="form-control my-3" id="search" name="search" placeholder="search">
 
     <div class="container-fluid">
         <div class="row">
@@ -40,19 +31,19 @@
                                 <span class="badge badge-pill badge-dark">
                                 <c:choose>
                                     <c:when test="${cat.categoryId == 1}">
-                                        animals
+                                        Animals
                                     </c:when>
                                     <c:when test="${cat.categoryId == 2}">
-                                        people
+                                        People
                                     </c:when>
                                     <c:when test="${cat.categoryId == 3}">
-                                        concepts
+                                        Concepts
                                     </c:when>
                                     <c:when test="${cat.categoryId == 4}">
-                                        things
+                                        Food
                                     </c:when>
                                     <c:otherwise>
-                                        places
+                                        Places
                                     </c:otherwise>
                                 </c:choose>
                                 </span>
