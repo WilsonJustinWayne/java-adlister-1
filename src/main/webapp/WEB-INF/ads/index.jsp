@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <div class="row">
             <c:forEach var="ad" items="${ads}">
-                <div class="col-6 mb-3">
+                <div class="col-12 col-md-6 mb-3">
                     <div class="card">
                         <div class="card-body text-center">
                             <h1 class="card-title p-2">${ad.title}</h1>

@@ -60,7 +60,7 @@
         <div class="row">
             <c:forEach var="ads" items="${ads}">
                 <c:if test="${ads.userId == sessionScope.user.id}">
-                    <div class="col-6 py-5">
+                    <div class="col-12 col-md-6 py-5">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h1 class="card-title">${ads.title}</h1>
