@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${hasError == true}">
     <div class="bg-danger">
         <h3 class="text-white text-center py-2">
