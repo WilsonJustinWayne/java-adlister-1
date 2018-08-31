@@ -67,6 +67,20 @@
 </div>
 
 <jsp:include page="/WEB-INF/partials/scripts.jsp"/>
+<script>
+    $( document ).ready(function() {
+        $('#search').keyup(function () {
+            let filter = $(this).val();
 
+            $('.card').each(function () {
+                if ($(this).find('.card-title').text().search(new RegExp(filter, 'i')) < 0 ) {
+                    $(this).parent().hide();
+                } else {
+                    $(this).parent().show();
+                }
+            })
+        });
+    });
+</script>
 </body>
 </html>
