@@ -28,6 +28,10 @@ input:focus {
     box-shadow: none!important;
 }
 
+.badge {
+    margin-top: 12px;
+}
+
 #hero {
     margin: 0;
     padding: 0;
@@ -51,4 +55,10 @@ input:focus {
     border-bottom: 2px solid black;
     border-radius: 0;
     font-size: 3rem;
+}
+
+#created-by {
+    display: inline;
+    float: right;
+    margin-top: 7px;
 }

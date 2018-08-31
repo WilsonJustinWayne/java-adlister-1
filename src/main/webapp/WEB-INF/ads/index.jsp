@@ -23,8 +23,8 @@
                 <div class="col-6 mb-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <h2 class="card-title p-2">${ad.title}</h2>
-                            <p class="card-text">${ad.description}</p>
+                            <h1 class="card-title p-2">${ad.title}</h1>
+                            <p class="card-text pt-5">${ad.description}</p>
                         </div>
                         <div class="card-footer">
                             <c:forEach var="cat" items="${ad.categories}">
