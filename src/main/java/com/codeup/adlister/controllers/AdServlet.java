@@ -16,6 +16,12 @@ import java.util.List;
 public class AdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        if(request.getParameter("id") == null){
+            response.sendRedirect("/ads");
+            return;
+        }
+
         Long adId = Long.valueOf(request.getParameter("id"));
         List<Ad> ads = DaoFactory.getAdsDao().all();
 
