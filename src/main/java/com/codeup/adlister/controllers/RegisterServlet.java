@@ -32,6 +32,10 @@ public class RegisterServlet extends HttpServlet {
         if (inputHasErrors) {
             request.setAttribute("username", username);
             request.setAttribute("email", email);
+            request.setAttribute("hasError", true);
+            if (!password.equals(passwordConfirmation)) {
+                request.setAttribute("error","passwordNonMatch");
+            }
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
@@ -39,6 +43,8 @@ public class RegisterServlet extends HttpServlet {
         // create and save a new user
         User user = new User(username, email, password);
         if (DaoFactory.getUsersDao().insert(user) == null) {
+            request.setAttribute("hasError", true);
+            request.setAttribute("error","usernameAlreadyExists");
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
         response.sendRedirect("/login");

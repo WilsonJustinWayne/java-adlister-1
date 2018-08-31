@@ -28,6 +28,8 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
             stickyForm(username, request);
+            request.setAttribute("hasError", true);
+            request.setAttribute("error","usernameDoesntExist");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
@@ -42,6 +44,8 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("/ads/create");
             }
         } else {
+            request.setAttribute("hasError", true);
+            request.setAttribute("error","incorrectPasswordError");
             request = stickyForm(username, request);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
