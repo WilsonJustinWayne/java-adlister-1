@@ -10,18 +10,22 @@
         request.setAttribute("username", "");
     }
 %>
+
+<style>
+    <%@ include file="/resources/css/main.css" %>
+</style>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please Log In</h1>
+    <div class="container-fluid p-5">
+        <h1 class="display-4">Please log in</h1>
         <form action="/login" method="POST">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required value="<%= request.getAttribute("username")%>">
+                <input id="username" name="username" class="form-control inputs" type="text" required value="<%= request.getAttribute("username")%>">
+                <label for="username" class="form-control-placeholder">Username</label>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" required>
+                <input id="password" name="password" class="form-control inputs" type="password" required>
+                <label for="password" class="form-control-placeholder">Password</label>
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
