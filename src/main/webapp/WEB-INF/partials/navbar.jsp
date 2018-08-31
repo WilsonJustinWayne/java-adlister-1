@@ -13,6 +13,9 @@
     a {
         color: black;
     }
+    a:hover {
+        color: white;
+    }
 
     .navbar-brand {
         font-size: 2em;
