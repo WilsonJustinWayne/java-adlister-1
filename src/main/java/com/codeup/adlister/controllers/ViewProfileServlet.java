@@ -29,12 +29,12 @@ public class ViewProfileServlet extends HttpServlet {
 
         if(request.getParameter("methods") == null){
             long id = Long.parseLong(request.getParameter("id"));
-
             try {
-                DaoUtil.dbDelete("ads", id);
+                DaoFactory.getAdsDao().deleteAd(id);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
             request.setAttribute("ads", DaoFactory.getAdsDao().all());
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         }else if (request.getParameter("methods").equals("PUT")) {
