@@ -13,26 +13,30 @@
         request.setAttribute("email", "");
     }
 %>
+
+<style>
+    <%@ include file="/resources/css/main.css" %>
+</style>
 <body>
     <jsp:include page="partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please fill in your information.</h1>
+    <div class="container-fluid p-5">
+        <h1 class="display-4">Please fill in your information</h1>
         <form action="/register" method="post">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required value="<%= request.getAttribute("username")%>">
+                <input id="username" name="username" class="form-control inputs" type="text" required value="<%= request.getAttribute("username")%>">
+                <label for="username" class="form-control-placeholder">Username</label>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text" required value="<%= request.getAttribute("email")%>">
+                <input id="email" name="email" class="form-control inputs" type="text" required value="<%= request.getAttribute("email")%>">
+                <label for="email" class="form-control-placeholder">Email</label>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" required>
+                <input id="password" name="password" class="form-control inputs" type="password" required>
+                <label for="password" class="form-control-placeholder">Password</label>
             </div>
             <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password" required>
+                <input id="confirm_password" name="confirm_password" class="form-control inputs" type="password" required>
+                <label for="confirm_password" class="form-control-placeholder">Confirm Password</label>
             </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
+<div class="container-fluid p-5">
     <h1 class="display-4">Create a new myriad</h1>
     <form action="/ads/create" method="post">
         <div class="form-group">

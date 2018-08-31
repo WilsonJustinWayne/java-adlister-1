@@ -7,13 +7,7 @@
     </jsp:include>
 
     <style>
-        .card {
-            height: 300px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        }
-        .card-footer {
-            padding-bottom: 0;
-        }
+        <%@ include file="/resources/css/main.css" %>
     </style>
 </head>
 <body>
@@ -38,12 +32,18 @@
                 <form action="/profile" method="post">
                     <div class="form-group">
                         <div class="modal-body">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" name="username" id="username" value="${sessionScope.user.username}">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password">
+                            <div class="form-group">
+                                <input type="text" class="form-control inputs" name="username" id="username" value="${sessionScope.user.username}">
+                                <label for="username" class="form-control-placeholder">Username</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control inputs" name="email" id="email" value="${sessionScope.user.email}">
+                                <label for="email" class="form-control-placeholder">Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control inputs" name="password" id="password">
+                                <label for="password" class="form-control-placeholder">Password</label>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="methods" value="PUT">
