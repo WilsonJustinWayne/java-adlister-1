@@ -5,11 +5,17 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
+    <style>
+        <%@ include file="/resources/css/main.css" %>
+    </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+
+    <div class="jumbotron jumbotron-fluid" id="hero">
+        <div class="container">
+            <h1 class="display-3">Welcome to the MyriadLister!</h1>
+        </div>
     </div>
 
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
