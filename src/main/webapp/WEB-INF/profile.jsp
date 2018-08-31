@@ -78,9 +78,11 @@
                                     </div>
                                     <div class="col-6">
                                         <form action="/edit" method="GET">
+                                            <%--<form action="/profile" method="">--%>
                                             <div class="form-group">
                                                 <input hidden type="number" name="ad_id" value="${ads.id}">
                                                 <button type="submit" class="btn btn-primary btn-sm btn-block">Edit</button>
+                                                <input type="hidden" name="methods" value="ad_input">
                                             </div>
                                         </form>
                                     </div>

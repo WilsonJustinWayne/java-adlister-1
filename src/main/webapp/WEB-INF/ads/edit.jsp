@@ -10,14 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
 
-        <div class="col-6 offset-3 my-3">
-            <h1>Targeted Ad</h1>
-            <h2>${ads.title}</h2>
-            <p>${ads.description}</p>
-        </div>
-
-    <h1 class="my-5">Edit the targeted Ad</h1>
-    <form action="/edit" method="post">
+    <form class="mt-5" action="/edit" method="post">
         <div class="form-group">
             <label for="title">New Title</label>
             <input id="title" name="title" class="form-control" type="text" required>
