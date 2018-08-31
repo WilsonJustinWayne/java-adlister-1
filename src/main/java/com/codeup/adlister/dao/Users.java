@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface Users {
-    List<User> findAllUsers();
     User findByUserId(Long id);
     User findByUsername(String username);
     Long insert(User user);

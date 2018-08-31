@@ -36,23 +36,6 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> searchAds(String searchTerm) {
-
-        PreparedStatement stmt = null;
-        try {
-            stmt = DaoUtil.connection.prepareStatement("SELECT * FROM ads JOIN users WHERE ads.title LIKE ?");
-            stmt.setString(1, '%' + searchTerm + '%');
-
-            ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving specific ads.", e);
-        }
-
-    }
-
-    @Override
     public Ad findById(long id) {
 
         PreparedStatement stmt = null;
@@ -100,5 +83,13 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public void deleteAd(long id) throws SQLException {
+
+        String deleteQuery = "DELETE FROM ads WHERE id = ?";
+        PreparedStatement stmt = DaoUtil.connection.prepareStatement(deleteQuery);
+        stmt.setLong(1, id);
+        stmt.executeUpdate();
     }
 }

@@ -14,20 +14,6 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public List<User> findAllUsers() {
-        String query = "SELECT * FROM users";
-        PreparedStatement stmt = null;
-        try {
-            stmt = DaoUtil.connection.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            rs.next();
-            return createUsersFromResults(rs);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error finding all users", e);
-        }
-    }
-
-    @Override
     public User findByUserId(Long id) {
         String query = "SELECT * FROM users WHERE id = ?";
         PreparedStatement stmt = null;

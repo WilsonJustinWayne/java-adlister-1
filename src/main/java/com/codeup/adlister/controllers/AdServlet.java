@@ -16,14 +16,17 @@ import java.util.List;
 public class AdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long adId = Long.valueOf(request.getParameter("id"));
-        List<Ad> ads = DaoFactory.getAdsDao().all();
 
-        for (Ad ad: ads) {
-            if (ad.getId() == adId) {
-                request.setAttribute("ad", ad);
-                request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
-            }
+        if(request.getParameter("id") == null){
+            response.sendRedirect("/ads");
+            return;
         }
+
+        Long adId = Long.valueOf(request.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().findById(adId);
+        request.setAttribute("ad", ad);
+
+        request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
+
     }
 }

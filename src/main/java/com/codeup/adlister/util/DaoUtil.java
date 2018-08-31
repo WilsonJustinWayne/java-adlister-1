@@ -1,6 +1,7 @@
 package com.codeup.adlister.util;
 
 import com.codeup.adlister.dao.Config;
+import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -55,19 +56,6 @@ public class DaoUtil {
         PreparedStatement stmt = connection.prepareStatement(insertQuery);
         stmt.setLong(1, adId);
         stmt.setLong(2, catId);
-        stmt.executeUpdate();
-    }
-
-    public static void dbDelete(String targetDb, long id) throws SQLException {
-
-        String deleteQuery = "";
-
-        if (targetDb.equals("ads")) {
-            deleteQuery = "DELETE FROM ads WHERE id = ?";
-        }
-
-        PreparedStatement stmt = connection.prepareStatement(deleteQuery);
-        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 
