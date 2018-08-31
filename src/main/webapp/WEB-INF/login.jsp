@@ -29,6 +29,7 @@
             <h4>Not already a user?</h4>
             <h4 class="text-primary"><a href="/register">Register Here!</a></h4>
         </div>
+        <jsp:include page="/WEB-INF/partials/errors.jsp" />
     </div>
 
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
