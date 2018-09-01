@@ -25,7 +25,7 @@
                 <span class="placeholder-text placeholder-text-area">Description</span>
             </label>
         </div>
-        <div class="form-check pl-0 py-3">
+        <div class="form-check pl-0 py-3 ml-1">
             <label for="categories">Categories: </label>
             <div id="categories" class="form-check form-check-inline">
                 <input id="animals" name="categories" class="form-check-input" type="checkbox" value="1">

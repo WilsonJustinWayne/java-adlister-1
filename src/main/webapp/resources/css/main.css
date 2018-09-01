@@ -4,6 +4,8 @@ body {
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 
 nav {
@@ -14,6 +16,7 @@ nav {
 
 input, textarea {
     background-color: rgba(0,0,0,0);
+    font-weight: 100!important;
 }
 
 input:focus + span, input:not(:placeholder-shown) + span {
@@ -24,6 +27,10 @@ input:focus + span, input:not(:placeholder-shown) + span {
 textarea:focus + span, textarea:not(:placeholder-shown) + span {
     opacity: 1;
     transform: scale(0.75) translateY(-200%) translateX(-20px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700!important;
 }
 
 .focus-in-expand {
@@ -71,8 +78,16 @@ textarea:focus + span, textarea:not(:placeholder-shown) + span {
     border: 0 none;
 }
 
+.card-title {
+    font-size: 3rem;
+}
+
 .card-footer {
     border: 0 none;
+}
+
+.more-info {
+    font-weight: 300!important;
 }
 
 .profile-cards .row {
@@ -178,6 +193,11 @@ textarea:focus + span, textarea:not(:placeholder-shown) + span {
 #hero h1 {
     position: absolute;
     top: 40%;
+    font-weight: 300!important;
+}
+
+#hero-profile {
+    font-weight: 300!important;
 }
 
 #index-ads {
@@ -201,6 +221,7 @@ textarea:focus + span, textarea:not(:placeholder-shown) + span {
     display: inline;
     float: right;
     margin-top: 7px;
+    font-weight: 100!important;
 }
 
 #create-ad, #edit-page, #register-page, #login-page {
@@ -215,22 +236,27 @@ textarea:focus + span, textarea:not(:placeholder-shown) + span {
 
 #b-animals {
     background-color: #55505C;
+    font-weight: 100!important;
 }
 
 #b-concepts {
     background-color: #465775;
+    font-weight: 100!important;
 }
 
 #b-food {
     background-color: #646881;
+    font-weight: 100!important;
 }
 
 #b-places {
     background-color: #64403E;
+    font-weight: 100!important;
 }
 
 #b-people {
     background-color: #404E4D;
+    font-weight: 100!important;
 }
 
 @-webkit-keyframes Gradient {

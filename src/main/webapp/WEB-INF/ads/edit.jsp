@@ -14,6 +14,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container-fluid p-5" id="edit-page">
 
+    <h1 class="display-4">Editing ${ads.title}</h1>
     <form class="mt-5" action="/edit" method="post">
         <div class="form-group">
             <label for="title" class="placeholder-label">

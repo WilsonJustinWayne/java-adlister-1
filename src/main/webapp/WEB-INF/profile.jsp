@@ -15,7 +15,7 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Welcome, ${sessionScope.user.username}!</h1>
+            <h1 class="display-4" id="hero-profile">Welcome, ${sessionScope.user.username}!</h1>
             <a href="#" class="badge badge-light" data-toggle="modal" data-target="#editProfile">Edit profile</a>
         </div>
     </div>

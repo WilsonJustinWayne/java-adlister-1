@@ -56,7 +56,7 @@
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
-                            <a class="btn btn-light btn-small float-right" href="/ad?id=${ad.id}">More info</a>
+                            <a class="btn btn-light btn-small float-right more-info" href="/ad?id=${ad.id}">More info</a>
                         </div>
                     </div>
                 </div>
