@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<div class="container">
+<div class="container-fluid p-5">
     <input type="text" class="form-control my-3" id="search" name="search" placeholder="search">
 
     <div class="container-fluid">
