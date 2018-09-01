@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(-45deg, #1565C0, #b92b27, #FF4B2B, #12c2e9);
+    background: linear-gradient(-45deg, #0052d4, #4364f7, #6fb1fc);
     background-size: 400% 400%;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
@@ -24,6 +24,11 @@ input:focus + span, input:not(:placeholder-shown) + span {
 textarea:focus + span, textarea:not(:placeholder-shown) + span {
     opacity: 1;
     transform: scale(0.75) translateY(-200%) translateX(-20px);
+}
+
+.focus-in-expand {
+    -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .placeholder-label {
@@ -261,5 +266,32 @@ textarea:focus + span, textarea:not(:placeholder-shown) + span {
     }
     100% {
         background-position: 0% 50%
+    }
+}
+
+@-webkit-keyframes focus-in-expand {
+      0% {
+          letter-spacing: -0.5em;
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+      }
+      100% {
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+      }
+  }
+@keyframes focus-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
     }
 }

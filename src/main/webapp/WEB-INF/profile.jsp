@@ -81,7 +81,7 @@
                                         <%--<form action="/profile" method="">--%>
                                         <div class="form-group">
                                             <input hidden type="number" name="ad_id" value="${ads.id}">
-                                            <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Edit</button>
+                                            <button type="submit" class="btn btn-outline-primary btn-lg btn-block fill">Edit</button>
                                             <input type="hidden" name="methods" value="ad_input">
                                         </div>
                                     </form>
