@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${hasError == true}">
-    <div class="bg-danger">
-        <h3 class="text-white text-center py-2">
+    <div id="errors">
+        <p class="text-white text-center py-2">
             <c:choose>
                 <c:when test="${error == \"usernameAlreadyExists\"}">
                     Username already exists. Please enter a different username.
@@ -16,7 +16,7 @@
                     Passwords do not match. Please try again.
                 </c:when>
             </c:choose>
-        </h3>
+        </p>
     </div>
 </c:if>
 

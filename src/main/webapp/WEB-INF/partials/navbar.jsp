@@ -1,55 +1,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
-
-    nav {
-        padding: 0 !important;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    a {
-        color: black;
-    }
-    a:hover {
-        color: white;
-    }
-
-    .navbar-brand {
-        font-size: 2em;
-    }
-
-    .nav-link {
-        color: white;
-        font-size: 1.5em;
-    }
-
-</style>
-
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand ml-5" href="/ads">MyriadLister</a>
-    <ul class="navbar">
-        <li class="nav-item">
-            <a class="nav-link" href="/ads/create">Create Ad</a>
-        </li>
-        <c:choose>
-            <c:when test="${sessionScope.user == null}">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-            </c:when>
-            <c:otherwise>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                </li>
-            </c:otherwise>
-
-        </c:choose>
-
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mx-5">
+            <li class="nav-item">
+                <a class="nav-link link-text" href="/ads/create">Create Myriad</a>
+            </li>
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <li class="nav-item">
+                        <a class="nav-link link-text" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-text" href="/register">Register</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a class="nav-link link-text" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-text" href="/logout">Logout</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </div>
 </nav>

@@ -12,19 +12,23 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container-fluid p-5">
+<div class="container-fluid p-5" id="edit-page">
 
     <form class="mt-5" action="/edit" method="post">
         <div class="form-group">
-            <input id="title" name="title" class="form-control inputs" type="text" required>
-            <label for="title" class="form-control-placeholder">New Title</label>
+            <label for="title" class="placeholder-label">
+                <input id="title" name="title" class="form-control inputs" type="text" required placeholder=" ">
+                <span class="placeholder-text">New Title</span>
+            </label>
         </div>
         <div class="form-group">
-            <textarea id="description" name="description" class="form-control inputs" type="text" required></textarea>
-            <label for="description" class="form-control-placeholder-textarea">New Description</label>
+            <label for="description" class="placeholder-label">
+                <textarea id="description" name="description" class="form-control inputs" type="text" required placeholder=" "></textarea>
+                <span class="placeholder-text placeholder-text-area">New Description</span>
+            </label>
         </div>
         <input hidden type="text" name="ad_id" value="${ads.id}">
-        <input type="submit" class="btn btn-block btn-primary mt-5">
+        <input type="submit" class="btn btn-block btn-outline-success mt-5">
     </form>
 </div>
 

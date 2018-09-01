@@ -22,25 +22,33 @@
                     </div>
                     <div class="card-footer">
                         <c:forEach var="cat" items="${ad.categories}">
-                                <span class="badge badge-pill badge-dark">
-                                <c:choose>
-                                    <c:when test="${cat.categoryId == 1}">
-                                        animals
-                                    </c:when>
-                                    <c:when test="${cat.categoryId == 2}">
-                                        people
-                                    </c:when>
-                                    <c:when test="${cat.categoryId == 3}">
-                                        concepts
-                                    </c:when>
-                                    <c:when test="${cat.categoryId == 4}">
-                                        things
-                                    </c:when>
-                                    <c:otherwise>
-                                        places
-                                    </c:otherwise>
-                                </c:choose>
-                                </span>
+                            <c:choose>
+                                <c:when test="${cat.categoryId == 1}">
+                                        <span class="badge badge-pill badge-dark" id="b-animals">
+                                            Animals
+                                        </span>
+                                </c:when>
+                                <c:when test="${cat.categoryId == 2}">
+                                        <span class="badge badge-pill badge-dark" id="b-people">
+                                            People
+                                        </span>
+                                </c:when>
+                                <c:when test="${cat.categoryId == 3}">
+                                        <span class="badge badge-pill badge-dark" id="b-concepts">
+                                            Concepts
+                                        </span>
+                                </c:when>
+                                <c:when test="${cat.categoryId == 4}">
+                                        <span class="badge badge-pill badge-dark" id="b-food">
+                                            Food
+                                        </span>
+                                </c:when>
+                                <c:otherwise>
+                                        <span class="badge badge-pill badge-dark" id="b-places">
+                                            Places
+                                        </span>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                         <p class="card-text text-right" id="created-by">Created by ${ad.createdBy}</p>
                     </div>

@@ -29,21 +29,27 @@
                 <div class="modal-body">
                     <form action="/profile" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control inputs" name="username" id="username" value="${sessionScope.user.username}">
-                            <label for="username" class="form-control-placeholder">Username</label>
+                            <label for="username" class="placeholder-label modal-label">
+                                <input type="text" class="form-control modal-input" name="username" id="username" value="${sessionScope.user.username}" placeholder=" ">
+                                <span class="placeholder-text modal-text">Username</span>
+                            </label>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control inputs" name="email" id="email" value="${sessionScope.user.email}">
-                            <label for="email" class="form-control-placeholder">Email</label>
+                            <label for="email" class="placeholder-label modal-label">
+                                <input type="email" class="form-control modal-input" name="email" id="email" value="${sessionScope.user.email}" placeholder=" ">
+                                <span class="placeholder-text modal-text">Email</span>
+                            </label>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control inputs" name="password" id="password">
-                            <label for="password" class="form-control-placeholder">Password</label>
+                            <label for="password" class="placeholder-label modal-label">
+                                <input type="password" class="form-control modal-input" name="password" id="password" placeholder=" ">
+                                <span class="placeholder-text modal-text">Password</span>
+                            </label>
                         </div>
-                        <div class="modal-footer">
+                        <div class="row float-right pr-3">
                             <input type="hidden" name="methods" value="PUT">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-outline-secondary border-right-0" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-primary border-left-0">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -51,36 +57,34 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5">
+    <div class="container-fluid p-5" id="profile-ads">
         <div class="row">
             <c:forEach var="ads" items="${ads}">
                 <c:if test="${ads.userId == sessionScope.user.id}">
-                    <div class="col-12 col-md-6 mb-3">
+                    <div class="col-12 col-md-6 mb-5">
                         <div class="card profile-cards">
                             <div class="card-body text-center">
-                                <h1 class="card-title">${ads.title}</h1>
-                                <p class="card-text">${ads.description}</p>
+                                <h1 class="card-title p-2">${ads.title}</h1>
+                                <p class="card-text pt-5">${ads.description}</p>
                             </div>
-                            <div class="card-footer m-0 p-0">
-                                <div class="row w-100 m-0 p-0">
-                                    <div class="col-6 m-0 p-0">
-                                        <form action="/profile" method="POST">
-                                            <div class="form-group">
-                                                <input hidden type="number" name="id" value="${ads.id}">
-                                                <button id="submitButton" type="submit" class="btn btn-danger btn-sm btn-block">Delete</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-6 m-0 p-0">
-                                        <form action="/edit" method="GET">
-                                            <%--<form action="/profile" method="">--%>
-                                            <div class="form-group">
-                                                <input hidden type="number" name="ad_id" value="${ads.id}">
-                                                <button type="submit" class="btn btn-primary btn-sm btn-block">Edit</button>
-                                                <input type="hidden" name="methods" value="ad_input">
-                                            </div>
-                                        </form>
-                                    </div>
+                            <div class="row w-100 m-0 p-0">
+                                <div class="col-6 m-0 p-0">
+                                    <form action="/profile" method="POST">
+                                        <div class="form-group">
+                                            <input hidden type="number" name="id" value="${ads.id}">
+                                            <button id="submitButton" type="submit" class="btn btn-outline-danger btn-lg btn-block">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-6 m-0 p-0">
+                                    <form action="/edit" method="GET">
+                                        <%--<form action="/profile" method="">--%>
+                                        <div class="form-group">
+                                            <input hidden type="number" name="ad_id" value="${ads.id}">
+                                            <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Edit</button>
+                                            <input type="hidden" name="methods" value="ad_input">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
