@@ -10,18 +10,22 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
+<div class="container-fluid p-5" id="create-ad">
     <h1 class="display-4">Create a new myriad</h1>
     <form action="/ads/create" method="post">
         <div class="form-group">
-            <input id="title" name="title" class="form-control inputs" type="text" required>
-            <label for="title" class="form-control-placeholder">Title</label>
+            <label for="title" class="placeholder-label">
+                <input id="title" name="title" class="form-control" type="text" required placeholder=" ">
+                <span class="placeholder-text">Title</span>
+            </label>
         </div>
         <div class="form-group">
-            <textarea id="description" name="description" class="form-control inputs" type="text" required></textarea>
-            <label for="description" class="form-control-placeholder-textarea" id="desc">Description</label>
+            <label for="description" class="placeholder-label" id="desc">
+                <textarea id="description" name="description" class="form-control" type="text" required placeholder=" "></textarea>
+                <span class="placeholder-text placeholder-text-area">Description</span>
+            </label>
         </div>
-        <div class="form-check pl-0 py-3">
+        <div class="form-check pl-0 py-3 ml-1">
             <label for="categories">Categories: </label>
             <div id="categories" class="form-check form-check-inline">
                 <input id="animals" name="categories" class="form-check-input" type="checkbox" value="1">
@@ -36,7 +40,7 @@
                 <label class="form-check-label pr-2" for="places">Places </label>
             </div>
         </div>
-        <input id="adCreateButton" type="submit" class="btn btn-block btn-primary">
+        <input id="adCreateButton" type="submit" class="btn btn-block btn-outline-success">
     </form>
 </div>
 <jsp:include page="/WEB-INF/partials/scripts.jsp"/>

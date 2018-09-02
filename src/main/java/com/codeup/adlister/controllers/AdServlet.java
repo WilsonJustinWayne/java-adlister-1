@@ -23,10 +23,13 @@ public class AdServlet extends HttpServlet {
         }
 
         Long adId = Long.valueOf(request.getParameter("id"));
-        Ad ad = DaoFactory.getAdsDao().findById(adId);
-        request.setAttribute("ad", ad);
+        List<Ad> ads = DaoFactory.getAdsDao().all();
 
-        request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
-
+        for (Ad ad: ads) {
+            if (ad.getId() == adId) {
+                request.setAttribute("ad", ad);
+                request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
+            }
+        }
     }
 }

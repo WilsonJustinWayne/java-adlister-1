@@ -14,7 +14,7 @@
 
     <div class="jumbotron jumbotron-fluid" id="hero">
         <div class="container">
-            <h1 class="display-3">Welcome to the MyriadLister!</h1>
+            <h1 class="display-3 focus-in-expand">Welcome to the MyriadLister!</h1>
         </div>
     </div>
 

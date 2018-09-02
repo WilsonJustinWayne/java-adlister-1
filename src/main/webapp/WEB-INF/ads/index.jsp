@@ -14,13 +14,13 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<div class="container">
+<div class="container-fluid p-5" id="index-ads">
     <input type="text" class="form-control my-3" id="search" name="search" placeholder="search">
 
     <div class="container-fluid">
         <div class="row">
             <c:forEach var="ad" items="${ads}">
-                <div class="col-12 col-md-6 mb-3">
+                <div class="col-12 col-md-6 mb-5">
                     <div class="card">
                         <div class="card-body text-center">
                             <h1 class="card-title p-2">${ad.title}</h1>
@@ -28,27 +28,35 @@
                         </div>
                         <div class="card-footer">
                             <c:forEach var="cat" items="${ad.categories}">
-                                <span class="badge badge-pill badge-dark">
                                 <c:choose>
                                     <c:when test="${cat.categoryId == 1}">
-                                        Animals
+                                        <span class="badge badge-pill badge-dark" id="b-animals">
+                                            Animals
+                                        </span>
                                     </c:when>
                                     <c:when test="${cat.categoryId == 2}">
-                                        People
+                                        <span class="badge badge-pill badge-dark" id="b-people">
+                                            People
+                                        </span>
                                     </c:when>
                                     <c:when test="${cat.categoryId == 3}">
-                                        Concepts
+                                        <span class="badge badge-pill badge-dark" id="b-concepts">
+                                            Concepts
+                                        </span>
                                     </c:when>
                                     <c:when test="${cat.categoryId == 4}">
-                                        Food
+                                        <span class="badge badge-pill badge-dark" id="b-food">
+                                            Food
+                                        </span>
                                     </c:when>
                                     <c:otherwise>
-                                        Places
+                                        <span class="badge badge-pill badge-dark" id="b-places">
+                                            Places
+                                        </span>
                                     </c:otherwise>
                                 </c:choose>
-                                </span>
                             </c:forEach>
-                            <a class="btn btn-light btn-small float-right" href="/ad?id=${ad.id}">More info</a>
+                            <a class="btn btn-light btn-small float-right more-info" href="/ad?id=${ad.id}">More info</a>
                         </div>
                     </div>
                 </div>
